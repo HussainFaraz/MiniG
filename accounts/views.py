@@ -31,7 +31,7 @@ def register(request):
                 messages.success(request,('Please re-submit the form with the correct details..'))
                 return render(request,'Registeration.html')
    else:
-       return render(request,'Registeration.html')
+       return render(request,'registeration.html')
        
 def login(request):
     if request.method == "POST":
