@@ -122,4 +122,5 @@ USE_TZ = True
 import os.path
 STATIC_URL = '/static/'
 STATICFILES_DIRS=(os.path.join('Static'),)
+STATIC_ROOT = BASE_DIR / 'static'
 
