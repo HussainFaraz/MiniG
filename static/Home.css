@@ -1,0 +1,168 @@
+body
+{
+    background-color: darkslategray !important;
+}
+
+.sr-only
+{
+    color: black;
+    font-size: x-large;
+    
+}
+
+#tossBG
+{
+    background-image: url('tosstime.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+#InningBreak
+{
+    background-image: url('InningBreak.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%; 
+}
+
+#GameON{
+    background-image: url('LoginBG.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+#gameover
+{
+    background-image: url('GameOver.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+#crichome
+{
+    background-image: url('cricBG.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+    background-position: top;
+
+}
+
+#RPShome
+{
+    background-image: url('RPSBG1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+#regBG
+{
+    background-image: url('LoginBG.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+#LoginBG
+{
+    background-image: url('LoginBG.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.card-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+
+}
+.card-body{
+    background-color: lightcyan;
+}
+
+#bootstrapcard
+{
+    margin-top: 40px;
+
+}
+
+.Welcome{
+    margin-top: 20px;
+    font-size: x-large;
+    color:cornsilk;
+}
+
+.card-img-top{
+    height: 300px;
+    width: 20px;
+}
+
+#Registration
+{
+    color: cornsilk;
+}
+
+.Registration{
+    margin-top: 60px;
+    
+}
+
+.Login{
+    margin-top: 20px;
+}
+
+#form1
+{
+    position: relative;
+    margin-top: 20px;
+}
+#RegistrationCard
+{
+    margin-bottom: 20px;
+    background-color:cornsilk;
+}
+
+#LoginCard{
+
+    background-color: cornsilk;
+}
+
+.headingRegistration{
+    margin-top: 30px;
+    font-size: large;
+    text-align: center;
+    color:cornsilk;
+
+}
+.link1{
+    text-align: center;
+    color:honeydew;
+    font-size: large;
+}
+
+
+
+.float-container {
+    
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+}  
+
+
+#carouselExampleIndicators
+{
+    margin-top: 10%;
+}
+
