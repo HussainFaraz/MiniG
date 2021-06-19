@@ -21,7 +21,7 @@ def register(request):
        try:
             userdb = User.objects.get(username=username)
             messages.success(request,('User is already registered. Please login and proceed..'))
-            return render(request,'Registeration.html')
+            return render(request,'registeration.html')
        except:    
             form = UserForm(request.POST)
             if(form.is_valid()):
@@ -29,7 +29,7 @@ def register(request):
                 return render(request,'Login.html')
             else:
                 messages.success(request,('Please re-submit the form with the correct details..'))
-                return render(request,'Registeration.html')
+                return render(request,'registeration.html')
    else:
        return render(request,'registeration.html')
        
