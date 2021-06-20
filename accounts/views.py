@@ -107,24 +107,27 @@ def battingsecond(request):
     bat = random.randint(0,6)
     form = PlayerScore(run_perball= bat,Total_run =0)
     form.save()
-    #totalplayerscore = PlayerScore.objects.aggregate(Sum('run_perball')).get('run_perball__sum')
-    #if(totalplayerscore>totalcompscore):
-      # return HttpResponse("You Won!!")
+
     if(bat!=0):
         currentscore = PlayerScore.objects.aggregate(Sum('run_perball')).get('run_perball__sum')
         return render(request,'playerbatsecond.html',{'score':bat,'currentscore':currentscore})
     else:
         totalplayerscore = PlayerScore.objects.aggregate(Sum('run_perball')).get('run_perball__sum')
-        ComputerScore.objects.all().delete()
-        PlayerScore.objects.all().delete()
+      
         #messages.success(request,('OUT!!!')) 
         if(totalplayerscore>totalcompscore):
+            ComputerScore.objects.all().delete()
+            PlayerScore.objects.all().delete()
             rundifference = "1 wicket"
             return render(request,'result.html',{'result':totalplayerscore,'statement':"Congratulations!! You Won by",'rundifference':rundifference})
             #return HttpResponse("You Won!!")
         if(totalcompscore==totalplayerscore):
+            ComputerScore.objects.all().delete()
+            PlayerScore.objects.all().delete()
             return render(request,'result.html',{'result':totalplayerscore,'statement':"Match Tied"})
         else:
+            ComputerScore.objects.all().delete()
+            PlayerScore.objects.all().delete()
             rundifference = totalcompscore-totalplayerscore
             return render(request,'result.html',{'result':totalcompscore,'statement':"You Lost by ",'rundifference':rundifference,'statement2':"runs"})
             #return HttpResponse("Lost")
@@ -146,8 +149,6 @@ def ballingstart(request):
         for i in cricdb.values():
             totalscore = int(i)
         scoreToWIn = totalscore+1
-        #messages.success(request,('OUT!!!')) 
-       #ball = battingstart(request,totalscore)
         return render(request,'CompInningBreak.html',{'result':scoreToWIn})
 
 def ballingsecond(request):
@@ -156,9 +157,6 @@ def ballingsecond(request):
     bat = random.randint(0,6)
     form = ComputerScore(run_perball= bat,Total_run =0)
     form.save()
-    #totalplayerscore = PlayerScore.objects.aggregate(Sum('run_perball')).get('run_perball__sum')
-    #if(totalplayerscore>totalcompscore):
-      # return HttpResponse("You Won!!")
     if(bat!=0):
         currentscore = ComputerScore.objects.aggregate(Sum('run_perball')).get('run_perball__sum')
         return render(request,'oppbatsecond.html',{'score':bat,'currentscore':currentscore})
