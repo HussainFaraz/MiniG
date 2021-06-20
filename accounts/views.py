@@ -13,8 +13,6 @@ def introRPS(request):
     return render(request,'IntroRPS.html')
 
 def user(request):
-    PlayerScore.objects.all().delete()
-    ComputerScore.objects.all().delete()
     return render(request,'home.html')
 
 def register(request):
@@ -113,21 +111,19 @@ def battingsecond(request):
         return render(request,'playerbatsecond.html',{'score':bat,'currentscore':currentscore})
     else:
         totalplayerscore = PlayerScore.objects.aggregate(Sum('run_perball')).get('run_perball__sum')
-      
+        ComputerScore.objects.all().delete()
+        PlayerScore.objects.all().delete()
         #messages.success(request,('OUT!!!')) 
         if(totalplayerscore>totalcompscore):
-            ComputerScore.objects.all().delete()
-            PlayerScore.objects.all().delete()
+        
             rundifference = "1 wicket"
             return render(request,'result.html',{'result':totalplayerscore,'statement':"Congratulations!! You Won by",'rundifference':rundifference})
             #return HttpResponse("You Won!!")
         if(totalcompscore==totalplayerscore):
-            ComputerScore.objects.all().delete()
-            PlayerScore.objects.all().delete()
+          
             return render(request,'result.html',{'result':totalplayerscore,'statement':"Match Tied"})
         else:
-            ComputerScore.objects.all().delete()
-            PlayerScore.objects.all().delete()
+            
             rundifference = totalcompscore-totalplayerscore
             return render(request,'result.html',{'result':totalcompscore,'statement':"You Lost by ",'rundifference':rundifference,'statement2':"runs"})
             #return HttpResponse("Lost")
