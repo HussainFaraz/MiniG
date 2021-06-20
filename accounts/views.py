@@ -13,6 +13,8 @@ def introRPS(request):
     return render(request,'IntroRPS.html')
 
 def user(request):
+    PlayerScore.objects.all().delete()
+    ComputerScore.objects.all().delete()
     return render(request,'home.html')
 
 def register(request):
@@ -40,6 +42,8 @@ def login(request):
         try:
             userdb = User.objects.get(username=username)         
             if(username==userdb.username and password==userdb.password):
+                PlayerScore.objects.all().delete()
+                ComputerScore.objects.all().delete()
                 return render(request,'home.html',{'username':username})
             else:
                 messages.success(request,('Login Failed.. Please check your username and password'))
@@ -93,6 +97,7 @@ def battingstart(request):
             totalscore = int(i)
         scoreToWIn = totalscore+1
         #messages.success(request,('OUT!!!'))
+  
         return render(request,'PlayerInningBreak.html',{'result':scoreToWIn})
         #opponent won
 

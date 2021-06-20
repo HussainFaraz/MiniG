@@ -6,6 +6,7 @@ urlpatterns = [
     path('IntroRPS/', views.introRPS,name='introRPS'),
     path('Registeration/', views.register,name='registeration'),
     path('Login/', views.login,name='Login'),
+    path('Home/',views.user,name='home'),
 
     #cricket
     path('cricket/', views.toss,name='cricket'),
